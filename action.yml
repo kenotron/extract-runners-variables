@@ -1,13 +1,9 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'extract-runners-variables'
+description: 'Extracts Runners Vriables'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
-    required: true
-    default: '1000'
 outputs:
-  time: # output will be available to future steps
-    description: 'The current time after waiting'
+  actions_cache_url: # output will be available to future steps
+    description: 'The actions cache url'
 runs:
   using: 'node16'
   main: 'dist/index.js'

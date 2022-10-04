@@ -1,18 +1,21 @@
 const core = require('@actions/core');
-const wait = require('./wait');
-
 
 // most @actions toolkit packages have async methods
 async function run() {
   try {
-    const ms = core.getInput('milliseconds');
-    core.info(`Waiting ${ms} milliseconds ...`);
+    core.info(`Extracting runners variables`);
 
-    core.debug((new Date()).toTimeString()); // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
-    await wait(parseInt(ms));
-    core.info((new Date()).toTimeString());
+    const variables = {};
 
-    core.setOutput('time', new Date().toTimeString());
+    for (const key of Object.keys(process.env)) {
+      if (key.toLowerCase().startsWith("ACTIONS_")) {
+        variables[key] = process.env[key];
+      }
+    }
+
+    core.info(JSON.stringify(variables));
+
+    core.setOutput('actions_cache_url', variables['ACTIONS_CACHE_URL']);
   } catch (error) {
     core.setFailed(error.message);
   }

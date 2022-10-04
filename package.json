@@ -1,7 +1,7 @@
 {
-  "name": "javascript-action",
+  "name": "extract-runners-variables",
   "version": "1.0.0",
-  "description": "JavaScript Action Template",
+  "description": "Extracts Runners Variables",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
