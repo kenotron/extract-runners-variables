@@ -8,7 +8,7 @@ async function run() {
     const variables = {};
 
     for (const key of Object.keys(process.env)) {
-      if (key.toLowerCase().startsWith("ACTIONS_")) {
+      if (key.toLowerCase().startsWith("actions_")) {
         variables[key] = process.env[key];
       }
     }
