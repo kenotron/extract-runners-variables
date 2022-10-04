@@ -1,6 +1,5 @@
 name: 'extract-runners-variables'
 description: 'Extracts Runners Vriables'
-inputs:
 outputs:
   actions_cache_url: # output will be available to future steps
     description: 'The actions cache url'
