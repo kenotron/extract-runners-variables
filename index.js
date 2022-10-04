@@ -16,6 +16,8 @@ async function run() {
     core.info(JSON.stringify(variables));
 
     core.setOutput('actions_cache_url', variables['ACTIONS_CACHE_URL']);
+    core.setOutput('actions_runtime_token', variables['ACTIONS_RUNTIME_TOKEN']);
+    core.setOutput('actions_runtime_url', variables['ACTIONS_RUNTIME_URL']);
   } catch (error) {
     core.setFailed(error.message);
   }
